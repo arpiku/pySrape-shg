@@ -10,7 +10,7 @@ from utils import *
 from os.path import exists
 
 queue=[]
-#queue.append(getGroupUrlAndPaths("ANDHRA PRADESH","VISAKHAPATANAM","ADDATEEGALA","ADDATEEGALA","ADDATEEGALA",'ap', '0215001022003'))
+queue.append(getGroupUrlAndPaths("ANDHRA PRADESH","VISAKHAPATANAM","ADDATEEGALA","ADDATEEGALA","ADDATEEGALA",'ap', '0215001022003'))
 
 history = {}
 urlEncdr = {}
@@ -132,8 +132,11 @@ def scrape(level:int = 0):
                 print(urlAndPath)
                 queue.append(urlAndPath)
         level = level + 1 
+
 def scrape2(level:int = 0):
+    global queue
     if exists('queue'):
+        global queue
         queue = getQ()
     while queue:
         size_t = len(queue)
@@ -172,6 +175,7 @@ def scrape2(level:int = 0):
 
 
 if __name__ == "__main__":
+    global queue
     history= getHistory()
     urlEncdr = getEncdr()
     try:
